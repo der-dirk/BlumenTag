@@ -1,4 +1,4 @@
-package com.derdirk.hasentag;
+package com.derdirk.blumentag;
 
 import java.util.Calendar;
 import java.util.Date;

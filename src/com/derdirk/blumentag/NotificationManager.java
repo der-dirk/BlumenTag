@@ -1,4 +1,6 @@
-package com.derdirk.hasentag;
+package com.derdirk.blumentag;
+
+import com.derdirk.blumentag.R;
 
 import android.app.Notification;
 import android.app.PendingIntent;
@@ -33,7 +35,7 @@ public class NotificationManager
     Notification noti = new Notification.Builder(context)
     .setContentTitle(context.getString(R.string.notification_title))
     .setContentText(context.getString(R.string.notification_message))
-    .setSmallIcon(R.drawable.icon_rabbit)
+    .setSmallIcon(R.drawable.ic_sunflower)
     .setContentIntent(pIntent)
 //    .addAction(R.drawable.ic_launcher, "Call", pIntent)
 //    .addAction(R.drawable.ic_launcher, "More", pIntent)

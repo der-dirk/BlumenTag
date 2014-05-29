@@ -1,2 +1,2 @@
-App to determine the Hasen Tag
+App to determine the Blumen Tag
 

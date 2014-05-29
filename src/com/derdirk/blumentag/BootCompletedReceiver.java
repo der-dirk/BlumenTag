@@ -1,4 +1,4 @@
-package com.derdirk.hasentag;
+package com.derdirk.blumentag;
 
 import java.util.Calendar;
 
@@ -14,7 +14,7 @@ public class BootCompletedReceiver extends BroadcastReceiver
   @Override
   public void onReceive(Context context, Intent intent)
   {
-    SharedPreferences settings = context.getSharedPreferences("HasenTag", Context.MODE_PRIVATE);
+    SharedPreferences settings = context.getSharedPreferences("BlumentTag", Context.MODE_PRIVATE);
     long alertTimeMs = settings.getLong("AlertTime", 0);    
     
     Log.d("BootCompletedReceiver", "alertTimeMs: " + String.valueOf(alertTimeMs));

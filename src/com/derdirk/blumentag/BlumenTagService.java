@@ -1,13 +1,13 @@
-package com.derdirk.hasentag;
+package com.derdirk.blumentag;
 import android.app.IntentService;
 import android.content.Intent;
 
 
-public class HasenTagService extends IntentService
+public class BlumenTagService extends IntentService
 {
-  public HasenTagService()
+  public BlumenTagService()
   {
-    super("HasenTagService");
+    super("BlumenTagService");
   }
 
   @Override

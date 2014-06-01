@@ -34,7 +34,7 @@ public class NotificationManager
     // Actions are just fake
     Notification noti = new Notification.Builder(context)
     .setContentTitle(context.getString(R.string.notification_title))
-    .setContentText(context.getString(R.string.notification_message))
+    .setContentText(context.getString(R.string.notification_message_text))
     .setSmallIcon(R.drawable.ic_sunflower)
     .setContentIntent(pIntent)
 //    .addAction(R.drawable.ic_launcher, "Call", pIntent)

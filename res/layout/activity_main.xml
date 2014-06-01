@@ -30,12 +30,11 @@
         android:background="@drawable/background_shape" >
     
 		    <TextView
-		        android:id="@+id/reminder_label_text_view"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:layout_gravity="center_vertical"
 		        android:textSize="16sp"
-		        android:text="@string/reminder_label_text" />
+		        android:text="@string/interval_label_text" />
         
 		    <LinearLayout
 		        android:layout_width="wrap_content"
@@ -43,18 +42,48 @@
 		        android:layout_gravity="center_horizontal"
 		        android:orientation="horizontal" >
 		
-		       <NumberPicker
-		            android:id="@+id/number_picker"
-		            android:layout_width="wrap_content"
-		            android:layout_height="wrap_content"
-		            android:layout_gravity="center_vertical" />
-		
-		        <Spinner
-				        android:id="@+id/small_unit_spinner"
-				        android:layout_width="wrap_content"
-				        android:layout_height="wrap_content"
-				        android:layout_gravity="center_vertical" />
-
+		        <LinearLayout
+		            android:id="@+id/interval_unit_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/background_shape" >
+        
+		            <TextView
+		                android:id="@+id/interval_unit_text_view"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content"
+		                android:layout_gravity="center_vertical"
+		                android:textSize="16sp" />
+		        </LinearLayout>
+		        
+              <TextView
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center_vertical"
+                  android:textSize="16sp" 
+                  android:text="@string/interval_seperator_text"/>		        
+		        
+				    <LinearLayout
+				        android:id="@+id/interval_value_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="vertical"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/background_shape" >
+		            
+					    <TextView
+	                android:id="@+id/interval_value_text_view"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_gravity="center_vertical"
+	                android:textSize="16sp" />
+					    
+            </LinearLayout>
+            
         </LinearLayout>
         
     </LinearLayout>

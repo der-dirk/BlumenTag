@@ -8,14 +8,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import com.derdirk.blumentag.MainActivity;
+
 public class BootCompletedReceiver extends BroadcastReceiver
 {
 
   @Override
   public void onReceive(Context context, Intent intent)
   {
-    SharedPreferences settings = context.getSharedPreferences("BlumentTag", Context.MODE_PRIVATE);
-    long alertTimeMs = settings.getLong("AlertTime", 0);    
+    SharedPreferences settings = context.getSharedPreferences("BlumenTag", Context.MODE_PRIVATE);
+    long alertTimeMs = settings.getLong(MainActivity.CurrentAlertTimeSettingsTag, 0);    
     
     Log.d("BootCompletedReceiver", "alertTimeMs: " + String.valueOf(alertTimeMs));
     

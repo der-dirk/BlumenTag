@@ -2,8 +2,6 @@ package com.derdirk.blumentag;
 
 import java.util.Calendar;
 
-import com.derdirk.blumentag.R;
-
 import android.content.Context;
 import android.util.SparseArray;
 import android.util.SparseIntArray;

@@ -25,11 +25,13 @@ public class MainActivity extends    FragmentActivity
   public static final String NextIntervalValueSettingsTag   = "NextIntervalValue";
   public static final String CurrentAlertTimeSettingsTag    = "CurrentAlertTime";
   public static final String CurrentIntervalUnitSettingsTag = "CurrentIntervalUnit";
+  public static final String WeekendCorrectionSettingsTag   = "WeekendCorrection";
   
-  protected int    mNextIntervalUnit    = Calendar.SECOND;
-  protected int    mNextIntervalValue   = 5;
-  protected long   mCurrentAlertTimeMs  = 0;
-  protected int    mCurrentIntervalUnit = Calendar.WEEK_OF_YEAR;
+  protected int      mNextIntervalUnit    = Calendar.SECOND;
+  protected int      mNextIntervalValue   = 5;
+  protected long     mCurrentAlertTimeMs  = 0;
+  protected int      mCurrentIntervalUnit = Calendar.WEEK_OF_YEAR;
+  protected Boolean  mWeekendCorrection   = true;
   
   protected TextView                  mValueLabelTextView    = null;
   protected TextView                  mUnitLabelTextView     = null;
@@ -62,10 +64,11 @@ public class MainActivity extends    FragmentActivity
 
     // Restore preferences
     SharedPreferences settings = getSharedPreferences("HappyDay", MODE_PRIVATE);
-    mNextIntervalUnit    = settings.getInt( NextIntervalUnitSettingsTag,    Calendar.DAY_OF_YEAR);
-    mNextIntervalValue   = settings.getInt( NextIntervalValueSettingsTag,   2);
-    mCurrentAlertTimeMs  = settings.getLong(CurrentAlertTimeSettingsTag,    0);
-    mCurrentIntervalUnit = settings.getInt( CurrentIntervalUnitSettingsTag, Calendar.WEEK_OF_YEAR);
+    mNextIntervalUnit    = settings.getInt(    NextIntervalUnitSettingsTag,    Calendar.DAY_OF_YEAR);
+    mNextIntervalValue   = settings.getInt(    NextIntervalValueSettingsTag,   2);
+    mCurrentAlertTimeMs  = settings.getLong(   CurrentAlertTimeSettingsTag,    0);
+    mCurrentIntervalUnit = settings.getInt(    CurrentIntervalUnitSettingsTag, Calendar.WEEK_OF_YEAR);
+    mWeekendCorrection   = settings.getBoolean(WeekendCorrectionSettingsTag,   true);
     
     mValueLabelTextView.setText(Integer.toString(mNextIntervalValue));
     mUnitLabelTextView.setText(mUnitToResourceMapping.getResource(mNextIntervalUnit));
@@ -82,10 +85,11 @@ public class MainActivity extends    FragmentActivity
     // Save preferences
     SharedPreferences settings = getSharedPreferences("HappyDay", MODE_PRIVATE);
     SharedPreferences.Editor editor = settings.edit();
-    editor.putInt( NextIntervalUnitSettingsTag,    mNextIntervalUnit);
-    editor.putInt( NextIntervalValueSettingsTag,   mNextIntervalValue);
-    editor.putLong(CurrentAlertTimeSettingsTag,    mCurrentAlertTimeMs);
-    editor.putInt( CurrentIntervalUnitSettingsTag, mCurrentIntervalUnit);
+    editor.putInt(    NextIntervalUnitSettingsTag,    mNextIntervalUnit);
+    editor.putInt(    NextIntervalValueSettingsTag,   mNextIntervalValue);
+    editor.putLong(   CurrentAlertTimeSettingsTag,    mCurrentAlertTimeMs);
+    editor.putInt(    CurrentIntervalUnitSettingsTag, mCurrentIntervalUnit);
+    editor.putBoolean(WeekendCorrectionSettingsTag,   mWeekendCorrection);
     
     editor.commit();
   }
@@ -106,6 +110,9 @@ public class MainActivity extends    FragmentActivity
     mCurrentAlertTimeMs = AlarmTimeCalculator.getAlarmTime(mCurrentAlertTimeMs, mNextIntervalUnit, mNextIntervalValue);
     mCurrentIntervalUnit = mNextIntervalUnit;
     
+    if (mWeekendCorrection)
+      mCurrentAlertTimeMs = WeekendCorrectionCalculator.getAlarmTime(mCurrentAlertTimeMs);
+      
     AlertManager.setAlert(this, mCurrentAlertTimeMs);
     
     updateNextAlertText();

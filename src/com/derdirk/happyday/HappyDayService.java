@@ -1,13 +1,13 @@
-package com.derdirk.blumentag;
+package com.derdirk.happyday;
 import android.app.IntentService;
 import android.content.Intent;
 
 
-public class BlumenTagService extends IntentService
+public class HappyDayService extends IntentService
 {
-  public BlumenTagService()
+  public HappyDayService()
   {
-    super("BlumenTagService");
+    super("HappyDayService");
   }
 
   @Override

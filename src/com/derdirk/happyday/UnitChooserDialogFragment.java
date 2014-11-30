@@ -1,4 +1,4 @@
-package com.derdirk.blumentag;
+package com.derdirk.happyday;
 
 import android.app.Activity;
 import android.app.AlertDialog;

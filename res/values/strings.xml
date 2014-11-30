@@ -2,7 +2,7 @@
 <resources>
 
     <!-- app title -->
-    <string name="app_name">Blumen Tag</string>
+    <string name="app_name">Happy Day</string>
     
     <!-- main buttons -->
     <string name="done_button_text">Fertig</string>

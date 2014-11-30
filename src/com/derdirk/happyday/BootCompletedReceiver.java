@@ -1,4 +1,4 @@
-package com.derdirk.blumentag;
+package com.derdirk.happyday;
 
 import java.util.Calendar;
 
@@ -8,7 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
 
-import com.derdirk.blumentag.MainActivity;
+import com.derdirk.happyday.MainActivity;
 
 public class BootCompletedReceiver extends BroadcastReceiver
 {
@@ -16,7 +16,7 @@ public class BootCompletedReceiver extends BroadcastReceiver
   @Override
   public void onReceive(Context context, Intent intent)
   {
-    SharedPreferences settings = context.getSharedPreferences("BlumenTag", Context.MODE_PRIVATE);
+    SharedPreferences settings = context.getSharedPreferences("HappyDay", Context.MODE_PRIVATE);
     long alertTimeMs = settings.getLong(MainActivity.CurrentAlertTimeSettingsTag, 0);    
     
     Log.d("BootCompletedReceiver", "alertTimeMs: " + String.valueOf(alertTimeMs));

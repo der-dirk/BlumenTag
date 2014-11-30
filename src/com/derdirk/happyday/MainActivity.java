@@ -1,4 +1,4 @@
-package com.derdirk.blumentag;
+package com.derdirk.happyday;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -13,8 +13,8 @@ import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.derdirk.blumentag.UnitChooserDialogFragment.UnitChooserDialogListener;
-import com.derdirk.blumentag.ValueChooserDialogFragment.ValueChooserClient;
+import com.derdirk.happyday.UnitChooserDialogFragment.UnitChooserDialogListener;
+import com.derdirk.happyday.ValueChooserDialogFragment.ValueChooserClient;
 
 public class MainActivity extends    FragmentActivity
                           implements UnitChooserDialogListener, 
@@ -61,7 +61,7 @@ public class MainActivity extends    FragmentActivity
     super.onResume();
 
     // Restore preferences
-    SharedPreferences settings = getSharedPreferences("BlumenTag", MODE_PRIVATE);
+    SharedPreferences settings = getSharedPreferences("HappyDay", MODE_PRIVATE);
     mNextIntervalUnit    = settings.getInt( NextIntervalUnitSettingsTag,    Calendar.DAY_OF_YEAR);
     mNextIntervalValue   = settings.getInt( NextIntervalValueSettingsTag,   2);
     mCurrentAlertTimeMs  = settings.getLong(CurrentAlertTimeSettingsTag,    0);
@@ -80,7 +80,7 @@ public class MainActivity extends    FragmentActivity
     super.onPause();
     
     // Save preferences
-    SharedPreferences settings = getSharedPreferences("BlumenTag", MODE_PRIVATE);
+    SharedPreferences settings = getSharedPreferences("HappyDay", MODE_PRIVATE);
     SharedPreferences.Editor editor = settings.edit();
     editor.putInt( NextIntervalUnitSettingsTag,    mNextIntervalUnit);
     editor.putInt( NextIntervalValueSettingsTag,   mNextIntervalValue);

@@ -118,6 +118,20 @@ public class MainActivity extends    FragmentActivity
     updateNextAlertText();
   }
   
+  public void onDodgeButtonPressed(View view)
+  {
+    long tmpAlertTimeMs = mCurrentAlertTimeMs;
+    mCurrentAlertTimeMs = DodgeCalculator.getAlarmTime(mCurrentAlertTimeMs);
+    
+    if (mCurrentAlertTimeMs != tmpAlertTimeMs)
+    {
+      AlertManager.cancelAlert(this);
+      NotificationManager.clearNotification(this);
+      AlertManager.setAlert(this, mCurrentAlertTimeMs);
+      updateNextAlertText();
+    }
+  }
+  
   public void onStopButtonPressed(View view)
   {
     mCurrentAlertTimeMs = 0;

@@ -6,6 +6,7 @@
     
     <!-- main buttons -->
     <string name="done_button_text">Fertig</string>
+    <string name="dodge_button_text">Nicht Heute</string>
     <string name="stop_button_text">Erinnerungen Aus</string>
     
     <!-- intervall section -->

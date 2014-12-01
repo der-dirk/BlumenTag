@@ -11,6 +11,15 @@
         android:onClick="onDoneButtonPressed"
         android:text="@string/done_button_text"
         android:background="@drawable/background_shape" />
+
+    <Button
+        android:id="@+id/dodge_button"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:onClick="onDodgeButtonPressed"
+        android:text="@string/dodge_button_text"
+        android:background="@drawable/background_shape" />
     
     <Button
         android:id="@+id/stop_button"
@@ -120,6 +129,6 @@
 
         </LinearLayout>
         
-    </LinearLayout>    
+    </LinearLayout>
 
 </LinearLayout>

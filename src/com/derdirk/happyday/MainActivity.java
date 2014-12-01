@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -33,12 +34,13 @@ public class MainActivity extends    FragmentActivity
   protected int      mCurrentIntervalUnit = Calendar.WEEK_OF_YEAR;
   protected Boolean  mWeekendCorrection   = true;
   
-  protected TextView                  mValueLabelTextView    = null;
-  protected TextView                  mUnitLabelTextView     = null;
-  protected LinearLayout              mIntervalValueLayout   = null;
-  protected LinearLayout              mIntervalUnitLayout    = null;
-  protected TextView                  mNextReminderTextView  = null;
-  protected UnitToResourceMapping     mUnitToResourceMapping = null;
+  protected TextView                  mValueLabelTextView        = null;
+  protected TextView                  mUnitLabelTextView         = null;
+  protected LinearLayout              mIntervalValueLayout       = null;
+  protected LinearLayout              mIntervalUnitLayout        = null;
+  protected CheckBox                  mWeekendCorrectionCheckBox = null;
+  protected TextView                  mNextReminderTextView      = null;
+  protected UnitToResourceMapping     mUnitToResourceMapping     = null;
   
   @Override
   protected void onCreate(Bundle savedInstanceState)
@@ -46,12 +48,13 @@ public class MainActivity extends    FragmentActivity
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     
-    mValueLabelTextView    = (TextView)     findViewById(R.id.interval_value_text_view);
-    mUnitLabelTextView     = (TextView)     findViewById(R.id.interval_unit_text_view);
-    mIntervalValueLayout   = (LinearLayout) findViewById(R.id.interval_value_layout);
-    mIntervalUnitLayout    = (LinearLayout) findViewById(R.id.interval_unit_layout);
-    mNextReminderTextView  = (TextView)     findViewById(R.id.next_reminder_text_view);
-    mUnitToResourceMapping = new UnitToResourceMapping(this);
+    mValueLabelTextView        = (TextView)     findViewById(R.id.interval_value_text_view);
+    mUnitLabelTextView         = (TextView)     findViewById(R.id.interval_unit_text_view);
+    mIntervalValueLayout       = (LinearLayout) findViewById(R.id.interval_value_layout);
+    mWeekendCorrectionCheckBox = (CheckBox)     findViewById(R.id.weekendcorrection_checkbox);
+    mIntervalUnitLayout        = (LinearLayout) findViewById(R.id.interval_unit_layout);
+    mNextReminderTextView      = (TextView)     findViewById(R.id.next_reminder_text_view);
+    mUnitToResourceMapping     = new UnitToResourceMapping(this);
     
     mIntervalValueLayout.setOnClickListener(this);
     mIntervalUnitLayout.setOnClickListener(this);
@@ -72,6 +75,7 @@ public class MainActivity extends    FragmentActivity
     
     mValueLabelTextView.setText(Integer.toString(mNextIntervalValue));
     mUnitLabelTextView.setText(mUnitToResourceMapping.getResource(mNextIntervalUnit));
+    mWeekendCorrectionCheckBox.setChecked(mWeekendCorrection);
     
     // Update reminder text
     updateNextAlertText();
@@ -142,6 +146,11 @@ public class MainActivity extends    FragmentActivity
     updateNextAlertText();
   }
 
+  public void onWeekendCorrectionCheckboxClicked(View view)
+  {
+    mWeekendCorrection = ((CheckBox)view).isChecked();
+  }
+  
   protected void updateNextAlertText()
   {
     if (mCurrentAlertTimeMs != 0)

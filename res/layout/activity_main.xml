@@ -66,14 +66,15 @@
 		                android:layout_height="wrap_content"
 		                android:layout_gravity="center_vertical"
 		                android:textSize="16sp" />
+		            
 		        </LinearLayout>
 		        
-              <TextView
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_gravity="center_vertical"
-                  android:textSize="16sp" 
-                  android:text="@string/interval_seperator_text"/>		        
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textSize="16sp" 
+                android:text="@string/interval_seperator_text"/>		        
 		        
 				    <LinearLayout
 				        android:id="@+id/interval_value_layout"
@@ -96,7 +97,30 @@
         </LinearLayout>
         
     </LinearLayout>
-    
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/background_shape" >
+
+	      <TextView
+	          android:id="@+id/weekendcorrection_text_view"
+	          android:layout_width="wrap_content"
+	          android:layout_height="wrap_content"
+	          android:textSize="16sp" 
+	          android:text="@string/weekendcorrection_text"/>   
+
+	      <CheckBox
+	          android:id="@+id/weekendcorrection_checkbox"
+	          android:layout_width="wrap_content"
+	          android:layout_height="wrap_content"
+	          android:onClick="onWeekendCorrectionCheckboxClicked" />
+
+    </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -13,6 +13,9 @@
     <string name="interval_label_text">Intervall für die nächste Erinnerung:</string>
     <string name="interval_seperator_text">:</string>
     
+    <!-- weekend correction section -->
+    <string name="weekendcorrection_text">Wochende vermeiden</string>
+        
     <!-- next-reminder section -->
     <string name="next_reminder_label_text">Aktuelle Erinnerung:</string>
     <string name="next_reminder_default_text">Unbekannt</string>

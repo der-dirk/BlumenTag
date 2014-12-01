@@ -8,9 +8,10 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:layout_margin="10dp"
+        android:clickable="true"
         android:onClick="onDoneButtonPressed"
         android:text="@string/done_button_text"
-        android:background="@drawable/background_shape" />
+        android:background="@drawable/layout_selector" />
 
     <Button
         android:id="@+id/dodge_button"

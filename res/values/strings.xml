@@ -22,8 +22,10 @@
     <string name="no_next_reminder_text">Keine</string>
     
     <!-- notification -->
-    <string name="notification_title">Blumen Tag</string>
-    <string name="notification_message_text">Zeit die Blumen zu gießen!</string>
+    <!--string name="notification_title">Blumen Tag</string-->
+    <string name="notification_title">Hasen Tag</string>
+    <!--string name="notification_message_text">Zeit die Blumen zu gießen!</string-->
+    <string name="notification_message_text">Zeit zauberzumachen!</string>
     
     <!-- dialogs -->
     <string name="unitchooser_title">Intervall Typ</string>
